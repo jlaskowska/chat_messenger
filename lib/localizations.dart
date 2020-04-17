@@ -14,7 +14,7 @@ class AppLocalizations {
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': 'Chat Messenger',
+    'appTitle': '[ Chat Messenger ÜẞÖüüü ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {

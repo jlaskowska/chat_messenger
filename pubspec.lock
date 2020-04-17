@@ -116,6 +116,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_pseudolocalizor:
+    dependency: "direct dev"
+    description:
+      name: flutter_pseudolocalizor
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
