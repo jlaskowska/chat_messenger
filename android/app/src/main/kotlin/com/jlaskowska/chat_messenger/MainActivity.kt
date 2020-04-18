@@ -1,4 +1,4 @@
-package com.jlaskowska.chatmessenger
+package com.jlaskowska.chatroom
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity
