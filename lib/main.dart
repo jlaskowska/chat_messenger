@@ -1,4 +1,4 @@
-import 'package:chat_messenger/localizations.dart';
+import 'package:chatroom/localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
