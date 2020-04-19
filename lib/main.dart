@@ -1,6 +1,8 @@
+import 'package:chatroom/configs/app_colors.dart';
 import 'package:chatroom/localizations.dart';
 import 'package:chatroom/services/firebase_auth_service.dart';
 import 'package:chatroom/services/i_auth_service.dart';
+import 'package:chatroom/widgets/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
@@ -13,6 +15,7 @@ class MyApp extends StatelessWidget {
     return Provider<IAuthService>(
         create: (_) => FirebaseAuthService(),
         child: MaterialApp(
+          theme: ThemeData(accentColor: AppColors.blue),
           localizationsDelegates: [
             const AppLocalizationsDelegate(),
             GlobalMaterialLocalizations.delegate,
@@ -32,23 +35,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final FirebaseAuthService firebaseService = Provider.of<IAuthService>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.appTitle),
-      ),
-      body: Center(
-        child: Row(
-          children: <Widget>[
-            FlatButton(
-              onPressed: () => firebaseService.logIn(),
-              child: Text('Login'),
-            ),
-            FlatButton(
-              onPressed: () => firebaseService.logOut(),
-              child: Text('Logout'),
-            ),
-          ],
+        appBar: AppBar(
+          title: Text(AppLocalizations.appTitle),
         ),
-      ),
-    );
+        body: SafeArea(
+          child: SigninScreen(),
+        ));
   }
 }
