@@ -1,5 +1,6 @@
 import 'package:chatroom/configs/app_colors.dart';
 import 'package:chatroom/localizations.dart';
+import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/services/firebase_auth_service.dart';
 import 'package:chatroom/services/i_auth_service.dart';
 import 'package:chatroom/widgets/signin_screen/signin_screen.dart';
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         providers: [
           Provider<IAuthService>(
             create: (_) => FirebaseAuthService(),
+          ),
+          Provider<DeviceStorage>(
+            create: (_) => DeviceStorage(),
           ),
         ],
         child: MaterialApp(
@@ -41,12 +45,14 @@ class HomeScreen extends StatelessWidget {
     return Provider(
       create: (_) => SigninScreenStore(
         Provider.of<IAuthService>(context),
+        Provider.of<DeviceStorage>(context),
       ),
       child: Scaffold(
           appBar: AppBar(
             title: Text(AppLocalizations.appTitle),
           ),
           body: GestureDetector(
+            // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
             behavior: HitTestBehavior.opaque,
             onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
             child: SafeArea(
