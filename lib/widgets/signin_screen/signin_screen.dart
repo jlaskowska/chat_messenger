@@ -45,14 +45,17 @@ class _SigninScreenState extends State<SigninScreen> {
               ),
             ),
           ),
-          OutlineButton(
-            onPressed: store.canSignin ? () => store.login() : null,
-            shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-            borderSide: BorderSide(color: Theme.of(context).accentColor, width: 2),
-            child: Text(
-              'Signin',
-              style: TextStyle(
-                color: Theme.of(context).accentColor,
+          ButtonTheme(
+            minWidth: constraints.maxWidth * 0.5,
+            child: OutlineButton(
+              onPressed: store.canSignin ? () => store.login() : null,
+              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+              borderSide: BorderSide(color: Theme.of(context).accentColor, width: 2),
+              child: Text(
+                'Signin',
+                style: TextStyle(
+                  color: Theme.of(context).accentColor,
+                ),
               ),
             ),
           )
