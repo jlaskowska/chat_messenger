@@ -1,5 +1,6 @@
 import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/services/i_auth_service.dart';
+import 'package:flutter/material.dart';
 
 import 'package:mobx/mobx.dart';
 
@@ -34,6 +35,7 @@ abstract class _SigninScreenStore with Store {
     final success = await _authService.logIn();
     if (success) {
       await _deviceStorage.setIsUserSignedIn(true);
+      _deviceStorage.getIsUserSignedIn().then((value) => debugPrint('isUSerSignedIn: $value'));
       return true;
     } else {
       return false;
