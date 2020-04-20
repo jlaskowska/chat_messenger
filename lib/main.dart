@@ -46,16 +46,16 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(AppLocalizations.appTitle),
-        ),
+        // appBar: AppBar(
+        //   title: Text(AppLocalizations.appTitle),
+        // ),
         body: GestureDetector(
-          // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
-          behavior: HitTestBehavior.opaque,
-          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-          child: SafeArea(
-            child: SigninScreen(),
-          ),
-        ));
+      // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
+      behavior: HitTestBehavior.opaque,
+      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+      child: SafeArea(
+        child: SigninScreen(),
+      ),
+    ));
   }
 }

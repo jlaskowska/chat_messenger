@@ -8,11 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../localizations.dart';
-import '../../localizations.dart';
-import '../../localizations.dart';
-import '../../localizations.dart';
-import '../../localizations.dart';
-import '../../localizations.dart';
 
 class SigninScreen extends StatelessWidget {
   const SigninScreen({Key key}) : super(key: key);
@@ -23,10 +18,15 @@ class SigninScreen extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            Icons.people_outline,
-            color: AppColors.blue,
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: constraints.maxHeight * 0.05),
+            child: Icon(
+              Icons.people,
+              color: AppColors.blue,
+              size: constraints.maxWidth * 0.20,
+            ),
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth * 0.10),
@@ -50,41 +50,46 @@ class SigninScreen extends StatelessWidget {
           ),
           ButtonTheme(
             minWidth: constraints.maxWidth * 0.5,
-            child: OutlineButton(
-              onPressed: store.canSignin
-                  ? () async {
-                      ModalProgressIndicator.show(context);
-                      final success = await store.login();
-                      ModalProgressIndicator.dismiss();
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: constraints.maxHeight * 0.05),
+              child: OutlineButton(
+                onPressed: store.canSignin
+                    ? () async {
+                        ModalProgressIndicator.show(context);
+                        final success = await store.login();
+                        ModalProgressIndicator.dismiss();
 
-                      if (success) {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ChatroomScreen(),
-                          ),
-                        );
-                      } else {
-                        showAdaptiveErrorDialog(
-                          context: context,
-                          adaptiveErrorDialog: AdaptiveErrorDialog(
-                            title: AppLocalizations.signinScreenAdaptiveErrorDialogTitle,
-                            content: AppLocalizations.signinScreenAdaptiveErrorDialogContent,
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            buttonLabel: AppLocalizations.signinScreenAdaptiveErrorDialogButtonLabel,
-                          ),
-                        );
+                        if (success) {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ChatroomScreen(),
+                            ),
+                          );
+                        } else {
+                          showAdaptiveErrorDialog(
+                            context: context,
+                            adaptiveErrorDialog: AdaptiveErrorDialog(
+                              title: AppLocalizations.signinScreenAdaptiveErrorDialogTitle,
+                              content: AppLocalizations.signinScreenAdaptiveErrorDialogContent,
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              buttonLabel: AppLocalizations.signinScreenAdaptiveErrorDialogButtonLabel,
+                            ),
+                          );
+                        }
                       }
-                    }
-                  : null,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-              borderSide: BorderSide(color: Theme.of(context).accentColor, width: 2),
-              child: Text(
-                AppLocalizations.signinScreenSigininButtonLabel,
-                style: TextStyle(
-                  color: Theme.of(context).accentColor,
+                    : null,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                borderSide: BorderSide(color: Theme.of(context).accentColor, width: 2),
+                child: Text(
+                  AppLocalizations.signinScreenSigininButtonLabel,
+                  style: TextStyle(
+                    color: Theme.of(context).accentColor,
+                  ),
                 ),
               ),
             ),
