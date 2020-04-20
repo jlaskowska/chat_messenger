@@ -15,4 +15,6 @@ class DeviceStorage {
   Future<String> getUserID() async => await _storage.read(key: 'id');
 
   Future<String> getUserNickname() async => await _storage.read(key: 'nickname');
+
+  Future<void> deleteAll() async => await _storage.deleteAll();
 }
