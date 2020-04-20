@@ -22,6 +22,9 @@ class MyApp extends StatelessWidget {
           Provider<DeviceStorage>(
             create: (_) => DeviceStorage(),
           ),
+          ProxyProvider2<IAuthService, DeviceStorage, SigninScreenStore>(
+            update: (_, authService, deviceStorage, __) => SigninScreenStore(authService, deviceStorage),
+          ),
         ],
         child: MaterialApp(
           theme: ThemeData(accentColor: AppColors.blue),
@@ -42,23 +45,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (_) => SigninScreenStore(
-        Provider.of<IAuthService>(context),
-        Provider.of<DeviceStorage>(context),
-      ),
-      child: Scaffold(
-          appBar: AppBar(
-            title: Text(AppLocalizations.appTitle),
+    return Scaffold(
+        appBar: AppBar(
+          title: Text(AppLocalizations.appTitle),
+        ),
+        body: GestureDetector(
+          // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
+          behavior: HitTestBehavior.opaque,
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: SafeArea(
+            child: SigninScreen(),
           ),
-          body: GestureDetector(
-            // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
-            behavior: HitTestBehavior.opaque,
-            onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-            child: SafeArea(
-              child: SigninScreen(),
-            ),
-          )),
-    );
+        ));
   }
 }
