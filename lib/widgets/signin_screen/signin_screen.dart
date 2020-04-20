@@ -1,4 +1,5 @@
 import 'package:chatroom/configs/app_colors.dart';
+import 'package:chatroom/widgets/common/adaptive_error_dialog.dart';
 import 'package:chatroom/widgets/common/modal_progress_indicator.dart';
 import 'package:chatroom/widgets/signin_screen/chatroom_screen/chatroom_screen.dart';
 
@@ -6,9 +7,14 @@ import 'package:chatroom/widgets/signin_screen/signin_screen_store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SigninScreen extends StatelessWidget {
+class SigninScreen extends StatefulWidget {
   const SigninScreen({Key key}) : super(key: key);
 
+  @override
+  _SigninScreenState createState() => _SigninScreenState();
+}
+
+class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     final store = Provider.of<SigninScreenStore>(context);
@@ -52,10 +58,22 @@ class SigninScreen extends StatelessWidget {
                       if (success) {
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => ChatroomScreen()),
+                          MaterialPageRoute(
+                            builder: (context) => ChatroomScreen(),
+                          ),
                         );
                       } else {
-                        // TODO show popup
+                        showAdaptiveErrorDialog(
+                          context: context,
+                          adaptiveErrorDialog: AdaptiveErrorDialog(
+                            title: 'Error',
+                            content: 'Something went wrong. Please try again.',
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            buttonLabel: 'Try Again',
+                          ),
+                        );
                       }
                     }
                   : null,
