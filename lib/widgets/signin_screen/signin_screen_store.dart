@@ -32,9 +32,11 @@ abstract class _SigninScreenStore with Store {
   bool get canSignin => nickname == '' ? false : true;
 
   Future<bool> login() async {
-    final success = await _authService.logIn();
-    if (success) {
+    final result = await _authService.logIn();
+    if (result.success) {
       await _deviceStorage.setIsUserSignedIn(true);
+      // TODO save nickname to disk
+      // TODO save id to disk
       _deviceStorage.getIsUserSignedIn().then((value) => debugPrint('isUSerSignedIn: $value'));
       return true;
     } else {

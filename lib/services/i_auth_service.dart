@@ -1,4 +1,15 @@
+class LoginResult {
+  final bool success;
+  final String id;
+
+  LoginResult.withId(this.id) : success = true;
+
+  LoginResult.failed()
+      : success = false,
+        id = null;
+}
+
 abstract class IAuthService {
-  Future<bool> logIn();
+  Future<LoginResult> logIn();
   Future<void> logOut();
 }
