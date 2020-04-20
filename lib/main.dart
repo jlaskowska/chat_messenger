@@ -3,7 +3,7 @@ import 'package:chatroom/localizations.dart';
 import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/services/firebase_auth_service.dart';
 import 'package:chatroom/services/i_auth_service.dart';
-import 'package:chatroom/widgets/signin_screen/signin_screen.dart';
+import 'package:chatroom/widgets/home_screen.dart';
 import 'package:chatroom/widgets/signin_screen/signin_screen_store.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -40,22 +40,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key key}) : super(key: key);
+// class HomeScreen extends StatelessWidget {
+//   const HomeScreen({Key key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        // appBar: AppBar(
-        //   title: Text(AppLocalizations.appTitle),
-        // ),
-        body: GestureDetector(
-      // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
-      behavior: HitTestBehavior.opaque,
-      onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
-      child: SafeArea(
-        child: SigninScreen(),
-      ),
-    ));
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       // appBar: AppBar(
+//       //   title: Text(AppLocalizations.appTitle),
+//       // ),
+//       body: GestureDetector(
+//         // GestureDetector dismisses the keyboard when the user clicks outside of the TextField
+//         behavior: HitTestBehavior.opaque,
+//         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+//         child: SafeArea(
+//           child: SigninScreen(),
+//         ),
+//       ),
+//     );
+//   }
+// }
