@@ -1,3 +1,4 @@
+import 'package:chatroom/models/login_result.dart';
 import 'package:chatroom/services/i_auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
