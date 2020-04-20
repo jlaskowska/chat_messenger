@@ -1,2 +1,7 @@
 keys;en
 appTitle;Chat Messenger
+signinScreenNickname;Nickname
+signinScreenSigininButtonLabel;Signin
+adaptiveErrorDialogTitle;Error
+adaptiveErrorDialogContent;Something went wrong. Please try again.
+adaptiveErrorDialogButtonLabel;Try Again

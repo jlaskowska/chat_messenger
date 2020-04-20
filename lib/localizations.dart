@@ -7,14 +7,39 @@ import 'package:flutter/material.dart';
 class AppLocalizations {
   static String get appTitle => _getText('appTitle');
 
+  static String get signinScreenNickname => _getText('signinScreenNickname');
+
+  static String get signinScreenSigininButtonLabel =>
+      _getText('signinScreenSigininButtonLabel');
+
+  static String get adaptiveErrorDialogTitle =>
+      _getText('adaptiveErrorDialogTitle');
+
+  static String get adaptiveErrorDialogContent =>
+      _getText('adaptiveErrorDialogContent');
+
+  static String get adaptiveErrorDialogButtonLabel =>
+      _getText('adaptiveErrorDialogButtonLabel');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
     'appTitle': 'Chat Messenger',
+    'signinScreenNickname': 'Nickname',
+    'signinScreenSigininButtonLabel': 'Signin',
+    'adaptiveErrorDialogTitle': 'Error',
+    'adaptiveErrorDialogContent': 'Something went wrong. Please try again.',
+    'adaptiveErrorDialogButtonLabel': 'Try Again',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ Chat Messenger ÜẞÖüüü ]',
+    'appTitle': '[ Chat Messenger öööüßÜ ]',
+    'signinScreenNickname': '[ Nickname ääÜß ]',
+    'signinScreenSigininButtonLabel': '[ Signin ẞßẞ ]',
+    'adaptiveErrorDialogTitle': '[ Errör Äßü ]',
+    'adaptiveErrorDialogContent':
+        '[ Sömething went wröng. Please try again. ääÜüẞöÄäẞßÖä ]',
+    'adaptiveErrorDialogButtonLabel': '[ Try Ägain ẞöẞäÖ ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
