@@ -7,6 +7,13 @@ import 'package:chatroom/widgets/signin_screen/signin_screen_store.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../localizations.dart';
+import '../../localizations.dart';
+import '../../localizations.dart';
+import '../../localizations.dart';
+import '../../localizations.dart';
+import '../../localizations.dart';
+
 class SigninScreen extends StatelessWidget {
   const SigninScreen({Key key}) : super(key: key);
 
@@ -31,7 +38,7 @@ class SigninScreen extends StatelessWidget {
                 hintStyle: TextStyle(
                   color: Theme.of(context).accentColor,
                 ),
-                labelText: 'Nickname',
+                labelText: AppLocalizations.signinScreenNickname,
                 errorText: store.nicknameError,
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
@@ -61,12 +68,12 @@ class SigninScreen extends StatelessWidget {
                         showAdaptiveErrorDialog(
                           context: context,
                           adaptiveErrorDialog: AdaptiveErrorDialog(
-                            title: 'Error',
-                            content: 'Something went wrong. Please try again.',
+                            title: AppLocalizations.signinScreenAdaptiveErrorDialogTitle,
+                            content: AppLocalizations.signinScreenAdaptiveErrorDialogContent,
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            buttonLabel: 'Try Again',
+                            buttonLabel: AppLocalizations.signinScreenAdaptiveErrorDialogButtonLabel,
                           ),
                         );
                       }
@@ -75,7 +82,7 @@ class SigninScreen extends StatelessWidget {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
               borderSide: BorderSide(color: Theme.of(context).accentColor, width: 2),
               child: Text(
-                'Signin',
+                AppLocalizations.signinScreenSigininButtonLabel,
                 style: TextStyle(
                   color: Theme.of(context).accentColor,
                 ),
