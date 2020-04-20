@@ -36,7 +36,7 @@ abstract class _SigninScreenStore with Store {
     if (result.success) {
       await _deviceStorage.setIsUserSignedIn(true);
       await _deviceStorage.setUserID(result.id);
-      debugPrint('$result.id');
+      debugPrint('${result.id}');
       await _deviceStorage.setUserNickname(nickname);
       debugPrint('$nickname');
       _deviceStorage.getIsUserSignedIn().then((value) => debugPrint('isUSerSignedIn: $value'));
