@@ -1,4 +1,5 @@
 import 'package:chatroom/configs/app_colors.dart';
+import 'package:chatroom/widgets/common/modal_progress_indicator.dart';
 import 'package:chatroom/widgets/signin_screen/chatroom_screen/chatroom_screen.dart';
 
 import 'package:chatroom/widgets/signin_screen/signin_screen_store.dart';
@@ -44,9 +45,10 @@ class SigninScreen extends StatelessWidget {
             child: OutlineButton(
               onPressed: store.canSignin
                   ? () async {
-                      // TODO display modal progress indicator overlay
+                      ModalProgressIndicator.show(context);
                       final success = await store.login();
-                      // TODO remove modal progress indicator overlay
+                      ModalProgressIndicator.dismiss();
+
                       if (success) {
                         Navigator.pushReplacement(
                           context,
