@@ -12,14 +12,14 @@ class AppLocalizations {
   static String get signinScreenSigininButtonLabel =>
       _getText('signinScreenSigininButtonLabel');
 
-  static String get signinScreenAdaptiveErrorDialogTitle =>
-      _getText('signinScreenAdaptiveErrorDialogTitle');
+  static String get adaptiveErrorDialogTitle =>
+      _getText('adaptiveErrorDialogTitle');
 
-  static String get signinScreenAdaptiveErrorDialogContent =>
-      _getText('signinScreenAdaptiveErrorDialogContent');
+  static String get adaptiveErrorDialogContent =>
+      _getText('adaptiveErrorDialogContent');
 
-  static String get signinScreenAdaptiveErrorDialogButtonLabel =>
-      _getText('signinScreenAdaptiveErrorDialogButtonLabel');
+  static String get adaptiveErrorDialogButtonLabel =>
+      _getText('adaptiveErrorDialogButtonLabel');
 
   static Map<String, String> _localizedValues;
 
@@ -27,20 +27,19 @@ class AppLocalizations {
     'appTitle': 'Chat Messenger',
     'signinScreenNickname': 'Nickname',
     'signinScreenSigininButtonLabel': 'Signin',
-    'signinScreenAdaptiveErrorDialogTitle': 'Error',
-    'signinScreenAdaptiveErrorDialogContent':
-        'Something went wrong. Please try again.',
-    'signinScreenAdaptiveErrorDialogButtonLabel': 'Try Again',
+    'adaptiveErrorDialogTitle': 'Error',
+    'adaptiveErrorDialogContent': 'Something went wrong. Please try again.',
+    'adaptiveErrorDialogButtonLabel': 'Try Again',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ Chat Messenger ßẞÜẞßÄ ]',
-    'signinScreenNickname': '[ Nickname öÄẞä ]',
-    'signinScreenSigininButtonLabel': '[ Signin äÄä ]',
-    'signinScreenAdaptiveErrorDialogTitle': '[ Errör üÖÖ ]',
-    'signinScreenAdaptiveErrorDialogContent':
-        '[ Sömething went wröng. Please try again. ÖßßÜäöüÜüẞüü ]',
-    'signinScreenAdaptiveErrorDialogButtonLabel': '[ Try Ägain äÄüää ]',
+    'appTitle': '[ Chat Messenger öööüßÜ ]',
+    'signinScreenNickname': '[ Nickname ääÜß ]',
+    'signinScreenSigininButtonLabel': '[ Signin ẞßẞ ]',
+    'adaptiveErrorDialogTitle': '[ Errör Äßü ]',
+    'adaptiveErrorDialogContent':
+        '[ Sömething went wröng. Please try again. ääÜüẞöÄäẞßÖä ]',
+    'adaptiveErrorDialogButtonLabel': '[ Try Ägain ẞöẞäÖ ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {

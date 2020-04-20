@@ -2,6 +2,6 @@ keys;en
 appTitle;Chat Messenger
 signinScreenNickname;Nickname
 signinScreenSigininButtonLabel;Signin
-signinScreenAdaptiveErrorDialogTitle;Error
-signinScreenAdaptiveErrorDialogContent;Something went wrong. Please try again.
-signinScreenAdaptiveErrorDialogButtonLabel;Try Again
+adaptiveErrorDialogTitle;Error
+adaptiveErrorDialogContent;Something went wrong. Please try again.
+adaptiveErrorDialogButtonLabel;Try Again

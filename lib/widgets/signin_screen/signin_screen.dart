@@ -70,12 +70,12 @@ class SigninScreen extends StatelessWidget {
                           showAdaptiveErrorDialog(
                             context: context,
                             adaptiveErrorDialog: AdaptiveErrorDialog(
-                              title: AppLocalizations.signinScreenAdaptiveErrorDialogTitle,
-                              content: AppLocalizations.signinScreenAdaptiveErrorDialogContent,
+                              title: AppLocalizations.adaptiveErrorDialogTitle,
+                              content: AppLocalizations.adaptiveErrorDialogContent,
                               onPressed: () {
                                 Navigator.of(context).pop();
                               },
-                              buttonLabel: AppLocalizations.signinScreenAdaptiveErrorDialogButtonLabel,
+                              buttonLabel: AppLocalizations.adaptiveErrorDialogButtonLabel,
                             ),
                           );
                         }
