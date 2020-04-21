@@ -5,5 +5,5 @@ signinScreenSigininButtonLabel;Signin
 adaptiveErrorDialogTitle;Error
 adaptiveErrorDialogContent;Something went wrong. Please try again.
 adaptiveErrorDialogButtonLabel;Try Again
-chatroomLoginButton;Login
+chatroomLogoutButton;Logout
 chatroomSendMessageButton;Send
