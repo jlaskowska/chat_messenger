@@ -2,7 +2,9 @@ import 'package:chatroom/configs/app_colors.dart';
 import 'package:chatroom/localizations.dart';
 import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/services/firebase_auth_service.dart';
+import 'package:chatroom/services/firebase_chat_service.dart';
 import 'package:chatroom/services/i_auth_service.dart';
+import 'package:chatroom/services/i_chat_service.dart';
 import 'package:chatroom/widgets/home_screen.dart';
 import 'package:chatroom/widgets/signin_screen/signin_screen_store.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +24,10 @@ class MyApp extends StatelessWidget {
           Provider<DeviceStorage>(
             create: (_) => DeviceStorage(),
           ),
+          Provider<IChatService>(
+            create: (_) => FirebaseChatService(),
+          ),
+          // TODO add IChatService
           ProxyProvider2<IAuthService, DeviceStorage, SigninScreenStore>(
             update: (_, authService, deviceStorage, __) => SigninScreenStore(authService, deviceStorage),
           ),
