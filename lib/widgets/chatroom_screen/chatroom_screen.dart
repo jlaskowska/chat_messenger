@@ -6,6 +6,7 @@ import 'package:chatroom/services/i_chat_service.dart';
 import 'package:chatroom/widgets/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../localizations.dart';
 
@@ -18,10 +19,20 @@ class ChatroomScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            Container(
-              child: Center(
-                child: Text('Chatroom'),
-              ),
+            StreamBuilder(
+              initialData: <ChatMessage>[],
+              stream: Provider.of<IChatService>(context, listen: false).messageStream(),
+              builder: (_, AsyncSnapshot<List<ChatMessage>> snapshot) {
+                if (snapshot.hasData) {
+                  print(snapshot.data);
+                  return Column(
+                    children: <Widget>[
+                      for (final message in snapshot.data) Text(message.message),
+                    ],
+                  );
+                }
+                return Container();
+              },
             ),
             Container(
               child: Center(
@@ -41,17 +52,21 @@ class ChatroomScreen extends StatelessWidget {
               ),
             ),
             RaisedButton(
-                child: Text(AppLocalizations.chatroomSendMessageButton),
-                onPressed: () async {
-                  await Provider.of<IChatService>(context, listen: false).sendMessage(
-                    ChatMessage(
-                      id: '1234',
-                      message: 'bla bla bla',
-                      date: DateTime.now(),
-                      chatUser: ChatUser(id: '1', nickname: 'puszek'),
+              child: Text(AppLocalizations.chatroomSendMessageButton),
+              onPressed: () async {
+                await Provider.of<IChatService>(context, listen: false).sendMessage(
+                  ChatMessage(
+                    id: Uuid().v4(),
+                    message: 'bla bla bla',
+                    date: DateTime.now(),
+                    chatUser: ChatUser(
+                      id: Uuid().v4(),
+                      nickname: 'puszek',
                     ),
-                  );
-                })
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
