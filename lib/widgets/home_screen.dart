@@ -1,6 +1,6 @@
 import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/widgets/common/adaptive_error_dialog.dart';
-import 'package:chatroom/widgets/signin_screen/chatroom_screen/chatroom_screen.dart';
+import 'package:chatroom/widgets/chatroom_screen/chatroom_screen.dart';
 import 'package:chatroom/widgets/signin_screen/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
