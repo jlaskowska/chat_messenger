@@ -27,7 +27,6 @@ class MyApp extends StatelessWidget {
           Provider<IChatService>(
             create: (_) => FirebaseChatService(),
           ),
-          // TODO add IChatService
           ProxyProvider2<IAuthService, DeviceStorage, SigninScreenStore>(
             update: (_, authService, deviceStorage, __) => SigninScreenStore(authService, deviceStorage),
           ),
