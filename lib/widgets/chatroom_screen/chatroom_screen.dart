@@ -1,8 +1,13 @@
+import 'package:chatroom/models/chat_message.dart';
+import 'package:chatroom/models/chat_user.dart';
 import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/services/i_auth_service.dart';
+import 'package:chatroom/services/i_chat_service.dart';
 import 'package:chatroom/widgets/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../localizations.dart';
 
 class ChatroomScreen extends StatelessWidget {
   const ChatroomScreen({Key key}) : super(key: key);
@@ -31,10 +36,22 @@ class ChatroomScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('Log out'),
+                  child: Text(AppLocalizations.chatroomLogoutButton),
                 ),
               ),
             ),
+            RaisedButton(
+                child: Text(AppLocalizations.chatroomSendMessageButton),
+                onPressed: () async {
+                  await Provider.of<IChatService>(context, listen: false).sendMessage(
+                    ChatMessage(
+                      id: '1234',
+                      message: 'bla bla bla',
+                      date: DateTime.now(),
+                      chatUser: ChatUser(id: '1', nickname: 'puszek'),
+                    ),
+                  );
+                })
           ],
         ),
       ),
