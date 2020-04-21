@@ -25,6 +25,9 @@ class ChatMessage {
         'id': id,
         'message': message,
         'date': date.millisecondsSinceEpoch,
-        'charUser': chatUser.toJson(),
+        'chatUser': chatUser.toJson(),
       };
+
+  @override
+  String toString() => toJson().toString();
 }

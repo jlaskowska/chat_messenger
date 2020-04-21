@@ -24,7 +24,6 @@ class ChatroomScreen extends StatelessWidget {
               stream: Provider.of<IChatService>(context, listen: false).messageStream(),
               builder: (_, AsyncSnapshot<List<ChatMessage>> snapshot) {
                 if (snapshot.hasData) {
-                  print(snapshot.data);
                   return Column(
                     children: <Widget>[
                       for (final message in snapshot.data) Text(message.message),

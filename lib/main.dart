@@ -17,30 +17,31 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-        providers: [
-          Provider<IAuthService>(
-            create: (_) => FirebaseAuthService(),
-          ),
-          Provider<DeviceStorage>(
-            create: (_) => DeviceStorage(),
-          ),
-          Provider<IChatService>(
-            create: (_) => FirebaseChatService(),
-          ),
-          ProxyProvider2<IAuthService, DeviceStorage, SigninScreenStore>(
-            update: (_, authService, deviceStorage, __) => SigninScreenStore(authService, deviceStorage),
-          ),
+      providers: [
+        Provider<IAuthService>(
+          create: (_) => FirebaseAuthService(),
+        ),
+        Provider<DeviceStorage>(
+          create: (_) => DeviceStorage(),
+        ),
+        Provider<IChatService>(
+          create: (_) => FirebaseChatService(),
+        ),
+        ProxyProvider2<IAuthService, DeviceStorage, SigninScreenStore>(
+          update: (_, authService, deviceStorage, __) => SigninScreenStore(authService, deviceStorage),
+        ),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(accentColor: AppColors.blue),
+        localizationsDelegates: [
+          const AppLocalizationsDelegate(),
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
         ],
-        child: MaterialApp(
-          theme: ThemeData(accentColor: AppColors.blue),
-          localizationsDelegates: [
-            const AppLocalizationsDelegate(),
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: AppLocalizationsDelegate.supportedLocals,
-          home: HomeScreen(),
-        ));
+        supportedLocales: AppLocalizationsDelegate.supportedLocals,
+        home: HomeScreen(),
+      ),
+    );
   }
 }

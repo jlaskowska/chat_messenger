@@ -9,7 +9,7 @@ class FirebaseChatService implements IChatService {
   @override
   Stream<List<ChatMessage>> messageStream() {
     final stream = Firestore.instance.collection(_messageCollectionPath).snapshots();
-    return stream.map((snapshot) => snapshot.documents.map((document) => ChatMessage.fromJson(document.data)));
+    return stream.map((snapshot) => snapshot.documents.map((document) => ChatMessage.fromJson(document.data)).toList());
   }
 
   @override

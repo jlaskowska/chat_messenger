@@ -35,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
         future: _futureIsUserSignedin,
         builder: (context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData && snapshot.connectionState == ConnectionState.done) {
-            debugPrint('$snapshot.data');
             return snapshot.data == false
                 ? Scaffold(
                     body: GestureDetector(
