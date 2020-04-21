@@ -1,5 +1,7 @@
-abstract class IChatService {
-  Stream<List<Map<String, dynamic>>> messageStream();
+import 'package:chatroom/models/chat_message.dart';
 
-  void sendMessage(Map<String, dynamic> message);
+abstract class IChatService {
+  Stream<List<ChatMessage>> messageStream();
+
+  void sendMessage(ChatMessage message);
 }
