@@ -21,6 +21,11 @@ class AppLocalizations {
   static String get adaptiveErrorDialogButtonLabel =>
       _getText('adaptiveErrorDialogButtonLabel');
 
+  static String get chatroomLoginButton => _getText('chatroomLoginButton');
+
+  static String get chatroomSendMessageButton =>
+      _getText('chatroomSendMessageButton');
+
   static Map<String, String> _localizedValues;
 
   static Map<String, String> _enValues = {
@@ -30,16 +35,20 @@ class AppLocalizations {
     'adaptiveErrorDialogTitle': 'Error',
     'adaptiveErrorDialogContent': 'Something went wrong. Please try again.',
     'adaptiveErrorDialogButtonLabel': 'Try Again',
+    'chatroomLoginButton': 'Login',
+    'chatroomSendMessageButton': 'Send',
   };
 
   static Map<String, String> _deValues = {
-    'appTitle': '[ Chat Messenger öööüßÜ ]',
-    'signinScreenNickname': '[ Nickname ääÜß ]',
-    'signinScreenSigininButtonLabel': '[ Signin ẞßẞ ]',
-    'adaptiveErrorDialogTitle': '[ Errör Äßü ]',
+    'appTitle': '[ Chat Messenger ßßäßÄü ]',
+    'signinScreenNickname': '[ Nickname öööẞ ]',
+    'signinScreenSigininButtonLabel': '[ Signin öÜß ]',
+    'adaptiveErrorDialogTitle': '[ Errör äÄü ]',
     'adaptiveErrorDialogContent':
-        '[ Sömething went wröng. Please try again. ääÜüẞöÄäẞßÖä ]',
-    'adaptiveErrorDialogButtonLabel': '[ Try Ägain ẞöẞäÖ ]',
+        '[ Sömething went wröng. Please try again. ẞÜẞööẞÄÜüÜäö ]',
+    'adaptiveErrorDialogButtonLabel': '[ Try Ägain ÄüÖÄÜ ]',
+    'chatroomLoginButton': '[ Lögin ÖÄÖ ]',
+    'chatroomSendMessageButton': '[ Send ßÖ ]',
   };
 
   static Map<String, Map<String, String>> _allValues = {
