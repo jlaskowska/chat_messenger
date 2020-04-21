@@ -19,6 +19,7 @@ dependencies:
   build_runner: ^1.8.1
   flutter_secure_storage: ^3.3.3
   cloud_firestore: ^0.13.5
+  uuid: ^2.0.4
 
 dev_dependencies:
   flutter_test:
