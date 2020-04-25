@@ -1,6 +1,6 @@
 import 'package:chatroom/services/device_storage.dart';
 import 'package:chatroom/widgets/common/adaptive_error_dialog.dart';
-import 'package:chatroom/widgets/signin_screen/chatroom_screen/chatroom_screen.dart';
+import 'package:chatroom/widgets/chatroom_screen/chatroom_screen.dart';
 import 'package:chatroom/widgets/signin_screen/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
         future: _futureIsUserSignedin,
         builder: (context, AsyncSnapshot<bool> snapshot) {
           if (snapshot.hasData && snapshot.connectionState == ConnectionState.done) {
-            debugPrint('$snapshot.data');
             return snapshot.data == false
                 ? Scaffold(
                     body: GestureDetector(

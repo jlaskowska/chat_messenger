@@ -1,7 +1,7 @@
 import 'package:chatroom/configs/app_colors.dart';
 import 'package:chatroom/widgets/common/adaptive_error_dialog.dart';
 import 'package:chatroom/widgets/common/modal_progress_indicator.dart';
-import 'package:chatroom/widgets/signin_screen/chatroom_screen/chatroom_screen.dart';
+import 'package:chatroom/widgets/chatroom_screen/chatroom_screen.dart';
 import 'package:chatroom/widgets/signin_screen/signin_screen_store.dart';
 
 import 'package:flutter/material.dart';
