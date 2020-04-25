@@ -23,9 +23,12 @@ class ChatBubble extends StatelessWidget {
           Icons.person,
           color: isMe ? AppColors.blue : AppColors.lightBlue,
         ),
-        Text(
-          chatuser.nickname,
-          style: TextStyle(color: AppColors.gray),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+          child: Text(
+            chatuser.nickname,
+            style: TextStyle(color: AppColors.gray),
+          ),
         )
       ],
     );
