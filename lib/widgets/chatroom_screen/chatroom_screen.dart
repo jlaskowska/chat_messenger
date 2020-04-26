@@ -38,7 +38,6 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _controller;
     return Scaffold(
       // / GestureDetector dismisses the keyboard when the user clicks outside of the TextField
       body: GestureDetector(
@@ -104,22 +103,6 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
                   ),
                 ),
               ),
-              // RaisedButton(
-              //   child: Text(AppLocalizations.chatroomSendMessageButton),
-              //   onPressed: () async {
-              //     await Provider.of<IChatService>(context, listen: false).sendMessage(
-              //       ChatMessage(
-              //         id: Uuid().v4(),
-              //         message: 'bla bla bla',
-              //         date: DateTime.now(),
-              //         chatUser: ChatUser(
-              //           id: _currentUserId,
-              //           nickname: _currentUserNickname,
-              //         ),
-              //       ),
-              //     );
-              //   },
-              // ),
             ],
           ),
         ),
