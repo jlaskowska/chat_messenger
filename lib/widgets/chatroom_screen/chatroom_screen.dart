@@ -56,6 +56,7 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
                       child: ListView.builder(
                           itemCount: snapshot.data.length,
                           itemBuilder: (context, index) {
+                            snapshot.data.sort((a, b) => a.date.compareTo(b.date));
                             final message = snapshot.data[index];
                             return ChatBubble(
                               chatuser: message.chatUser,
