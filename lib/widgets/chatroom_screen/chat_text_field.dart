@@ -35,6 +35,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,
                 hintText: AppLocalizations.chatTextFieldSendMessageHintText,
+                hintStyle: TextStyle(fontSize: 14),
               ),
               controller: _controller,
             ),
