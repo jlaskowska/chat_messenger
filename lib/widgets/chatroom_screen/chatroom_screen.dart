@@ -26,6 +26,7 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
   DeviceStorage _deviceStorage;
   IChatService _chatService;
   String _inputText;
+  final ScrollController _controller = ScrollController();
 
   @override
   void didChangeDependencies() async {
@@ -53,6 +54,8 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
                   if (snapshot.hasData) {
                     return Expanded(
                       child: ListView.builder(
+                          shrinkWrap: true,
+                          controller: _controller,
                           itemCount: snapshot.data.length,
                           itemBuilder: (context, index) {
                             snapshot.data.sort((a, b) => a.date.compareTo(b.date));
@@ -83,6 +86,8 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
                       chatUser: ChatUser(id: _currentUserId, nickname: _currentUserNickname),
                     ),
                   );
+                  _controller.jumpTo(_controller
+                      .position.maxScrollExtent); //controller jumps to the latest message when the messages are added
                 },
                 onChanged: (value) => _inputText = value,
               ),
