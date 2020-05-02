@@ -45,71 +45,78 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
         behavior: HitTestBehavior.opaque,
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SafeArea(
-          child: Column(
-            children: <Widget>[
-              StreamBuilder(
-                initialData: <ChatMessage>[],
-                stream: Provider.of<IChatService>(context, listen: false).messageStream(),
-                builder: (_, AsyncSnapshot<List<ChatMessage>> snapshot) {
-                  if (snapshot.hasData) {
-                    return Expanded(
-                      child: ListView.builder(
-                          shrinkWrap: true,
-                          controller: _controller,
-                          itemCount: snapshot.data.length,
-                          itemBuilder: (context, index) {
-                            snapshot.data.sort((a, b) => a.date.compareTo(b.date));
-                            final message = snapshot.data[index];
-                            return ChatBubble(
-                              chatuser: message.chatUser,
-                              isMe: message.chatUser.id == _currentUserId,
-                              message: message.message,
-                            );
-                          }),
-                    );
-                  }
-                  return Container();
-                },
-              ),
-              Divider(
-                color: AppColors.gray,
-                indent: 16,
-                endIndent: 16,
-              ),
-              ChatTextField(
-                onPressed: () async {
-                  await _chatService.sendMessage(
-                    ChatMessage(
-                      id: Uuid().v4(),
-                      message: _inputText,
-                      date: DateTime.now(),
-                      chatUser: ChatUser(id: _currentUserId, nickname: _currentUserNickname),
-                    ),
-                  );
-                  _controller.jumpTo(_controller
-                      .position.maxScrollExtent); //controller jumps to the latest message when the messages are added
-                },
-                onChanged: (value) => _inputText = value,
-              ),
-              Container(
-                child: Center(
-                  child: RaisedButton(
+          child: LayoutBuilder(builder: (_, constraints) {
+            print(constraints.maxHeight);
+
+            return Column(
+              children: <Widget>[
+                StreamBuilder(
+                  initialData: <ChatMessage>[],
+                  stream: Provider.of<IChatService>(context, listen: false).messageStream(),
+                  builder: (_, AsyncSnapshot<List<ChatMessage>> snapshot) {
+                    if (snapshot.hasData) {
+                      return Expanded(
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            controller: _controller,
+                            itemCount: snapshot.data.length,
+                            itemBuilder: (context, index) {
+                              snapshot.data.sort((a, b) => a.date.compareTo(b.date));
+                              final message = snapshot.data[index];
+                              return ChatBubble(
+                                chatuser: message.chatUser,
+                                isMe: message.chatUser.id == _currentUserId,
+                                message: message.message,
+                              );
+                            }),
+                      );
+                    }
+                    return Container();
+                  },
+                ),
+                Divider(
+                  color: AppColors.gray,
+                  indent: 16,
+                  endIndent: 16,
+                ),
+                Container(
+                  child: ChatTextField(
+                    constraintsMaxHeight: constraints.maxHeight,
                     onPressed: () async {
-                      await Provider.of<IAuthService>(context, listen: false).logOut();
-                      await Provider.of<DeviceStorage>(context, listen: false).deleteAll();
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => HomeScreen(),
+                      await _chatService.sendMessage(
+                        ChatMessage(
+                          id: Uuid().v4(),
+                          message: _inputText,
+                          date: DateTime.now(),
+                          chatUser: ChatUser(id: _currentUserId, nickname: _currentUserNickname),
                         ),
                       );
+                      _controller.jumpTo(_controller.position
+                          .maxScrollExtent); //controller jumps to the latest message when the messages are added
                     },
-                    child: Text(AppLocalizations.chatroomLogoutButton),
+                    onChanged: (value) => _inputText = value,
                   ),
                 ),
-              ),
-            ],
-          ),
+                Container(
+                  child: Center(
+                    child: RaisedButton(
+                      onPressed: () async {
+                        await Provider.of<IAuthService>(context, listen: false).logOut();
+                        await Provider.of<DeviceStorage>(context, listen: false).deleteAll();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => HomeScreen(),
+                          ),
+                        );
+                      },
+                      child: Text(AppLocalizations.chatroomLogoutButton),
+                    ),
+                  ),
+                ),
+              ],
+            );
+          }),
         ),
       ),
     );
