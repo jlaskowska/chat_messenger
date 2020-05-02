@@ -23,4 +23,12 @@ class FirebaseChatService implements IChatService {
       );
     });
   }
+
+  @override
+  Future<void> deleteMessage(String messageId) async {
+    final documentReference = Firestore.instance.collection(_messageCollectionPath).document(messageId);
+    await Firestore.instance.runTransaction((transaction) async {
+      await transaction.delete(documentReference);
+    });
+  }
 }
