@@ -23,7 +23,7 @@ class _ChatTextFieldState extends State<ChatTextField> {
   @override
   Widget build(BuildContext context) {
     final _maxLines = (widget.constraintsMaxHeight * 0.02).toInt();
-    debugPrint(_maxLines.toString()); // determine the max number of lines depending on the height of the device
+    // determine the max number of lines depending on the height of the device
     return Row(
       children: <Widget>[
         Expanded(

@@ -46,8 +46,6 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
         child: SafeArea(
           child: LayoutBuilder(builder: (_, constraints) {
-            print(constraints.maxHeight);
-
             return Column(
               children: <Widget>[
                 StreamBuilder(
