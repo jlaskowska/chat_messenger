@@ -62,6 +62,9 @@ class _ChatroomScreenState extends State<ChatroomScreen> {
                               snapshot.data.sort((a, b) => a.date.compareTo(b.date));
                               final message = snapshot.data[index];
                               return ChatBubble(
+                                onLongPress: () async {
+                                  await _chatService.deleteMessage(message.id);
+                                },
                                 chatuser: message.chatUser,
                                 isMe: message.chatUser.id == _currentUserId,
                                 message: message.message,

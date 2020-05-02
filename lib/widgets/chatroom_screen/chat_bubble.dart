@@ -15,8 +15,6 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(isMe);
-
     final avatar = Column(
       children: <Widget>[
         Icon(
